@@ -1,0 +1,119 @@
+from math import*
+from string import*
+
+laluno = []
+lnota1 = []
+lnota2 = []
+lnota3 = []
+lfalta = []
+ldiario = ['laluno', 'lnota1', 'lnota2', 'lnota3', 'lfalta']
+
+
+aluno = 0
+nota1 = 0
+nota2 = 0
+nota3 = 0
+falta = 0
+salvar_diario = 0
+ini = 0
+def menu():
+    print('Menu:')
+    print('  1 - Matricular Aluno')
+    print('  2 - Remover Matricula')
+    print('  3 - Lançar nota')
+    print('  4 - Lançar faltas')
+    print('  5 - Listar Alunos Matriculos')
+    print('  6 - Verificar Situação de Aluno')
+    print('  7 - Ver Diario')
+    print('  9 - Sair')
+   
+    opt = input('Digite a opção desejada: ')
+    return opt
+
+
+def adicionar_matricula():
+    aluno = str(input("Digite o nome do aluno:\n"))
+    aluno = aluno.upper()
+    if aluno in laluno:
+        print('Aluno Matriculado')
+    else:
+        laluno.append(aluno)
+        print('Aluno Matriculado')
+    
+def remover_matricula():
+    aluno = str(input("Digite nome do aluno:\n"))
+    aluno = aluno.upper()
+    if aluno in laluno:
+        laluno.remover(aluno)
+        print('Aluno Removido')
+    else:
+        print('Esse Aluno Não Estar Matriculado')
+
+def lancar_notas():
+    aluno = str(input("Digite o nome do aluno: "))
+    aluno = aluno.upper()
+    if aluno in laluno:
+        nota1 = input("Digite a nota 1 do aluno:\n ")
+        nota2 = input("Digite a nota 2 do aluno:\n")
+        nota3 = input("Digite a nota 3 do aluno:\n ")
+        ldiario.append(nota1)
+        ldiario.append(nota2)
+        ldiario.append(nota3)
+    else:
+        print('Esse aluno não está matriculado')
+    pass
+
+def lançar_faltas():
+    aluno = str(input("Digite o nome do aluno :"))
+    aluno = aluno.upper()
+    if aluno in laluno:
+        falta = float(input("Digite as faltas do aluno:\n"))
+        ldiario.append(falta)
+    else:
+        print('Esse aluno não está matriculado')
+    pass
+
+def listar_alunos():
+    print('Alunos matriculados', laluno)
+    pass
+
+def verificar_situacao():
+    aluno = str(input("Digite o nome do aluno: "))
+    pass
+
+
+def le_diario():
+    print(ldiario)
+    pass
+
+def salvar_diario():
+    salvar = input("Deseja salvar o diario: ")
+    if salvar== 'Sim':
+        print("Diario salvo")
+    else:
+        salvar == 'Não'
+        print("Diario não salvo")
+    pass
+
+le_diario()
+opcao = menu()
+while opcao != '9':
+    if opcao == '1':
+        adicionar_matricula()
+    elif opcao == '2':
+        remover_matricula()
+    elif opcao == '3':
+        lancar_notas()
+    elif opcao == '4':
+        lançar_faltas()
+    elif opcao == '5':
+        listar_alunos()
+    elif opcao == '6':
+        verificar_situacao()
+    elif opcao == '7':
+        le_diario()
+   
+
+    opcao = menu()
+
+salvar_diario()
